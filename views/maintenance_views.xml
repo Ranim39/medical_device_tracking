@@ -1,0 +1,57 @@
+<xml version="1.0" encoding ="UTF-8"?>
+<!-- la balise principal -->
+<odoo>
+<!-- Vue formulaire de l'appareil médical -->
+<!-- id=id unique pour Odoo -->
+<!-- model=signifie que tu declare une vue d'interface-->
+<record id="view_medical_maintenance_form" model="ir.ui.view">
+<!-- le nom donné à cette vue(usage interne) -->
+<field name="name">medical.device.maintenance.form</field>
+<!-- informer Odoo que cette vue est pour le modele medical.device -->
+<field name="model">medical.device.maintenance</field>
+<field name="arch" type="xml">
+<!-- "Appareil Médical" est le titre affiché en haut du formulaire.-->
+    <form string="Maintenance Appareil">
+      <sheet>
+        <group>
+          <field name="device_id"/>
+          <field name="maintenance_date"/>
+          <field name="technician_name"/>
+          <field name="intervention_type"/>
+          <field name="duration"/>
+          <field name="cost"/>
+          <field name="currency_id"/>
+          <field name="notes"/>
+        </group>
+      </sheet>
+    </form>
+</field>
+</record>
+<!--Vue liste des appareils -->
+
+<record id="view_medical_maintenance_tree" model="ir.ui.view">
+  <field name="name">medical.device.maintenance.tree</field>
+  <field name="model">medical.device.maintenance</field>
+  <field name="arch" type="xml">
+    <tree string="Maintenances">
+        <field name="device_id"/>
+        <field name="maintenance_date"/>
+        <field name="technician_name"/>
+        <field name="intervention_type"/>
+        <field name="cost"/>
+    </tree>
+  </field>
+</record>
+<!-- Action pour afficher la vue-->
+<record id="action_medical_maintenance" model="ir.actions.act_window">
+  <field name="name">Maintenances</field>
+  <field name="res_model">medical.device.maintenance</field>
+  <field name="view_mode">tree,form</field>
+</record>
+
+<!--Menu sous Appareils Médicaux-->
+<menuitem id="menu_medical_maintenance" name="Maintenances"
+          parent="menu_medical_root"
+          action="action_medical_maintenance"/>
+
+</odoo>

@@ -1,0 +1,4 @@
+
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_medical_device,access.medical.device,model_medical_device,,1,1,1,1
+access_medical_device_maintenance,access.medical.device.maintenance,model_medical_device_maintenance,,1,1,1,1
